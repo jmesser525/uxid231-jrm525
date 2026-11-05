@@ -1,3 +1,43 @@
+@font-face {
+    font-family: "Dojo-Sans";
+    src: url("fonts/DojoSans-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Dojo-Sans";
+    src: url("fonts/DojoSans-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Dojo-Sans";
+    src: url("fonts/DojoSans-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Dojo-Sans";
+    src: url("fonts/DojoSans-Semibold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Dojo-Sans";
+    src: url("fonts/DojoSans-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --color-background: #ffffff;
     --color-foreground: #1a1a1a;
@@ -7,13 +47,54 @@
     --color-border: #EBEBEB;
     --color-box-shadow: #0000004D;
     --color-pill: #f0f0f0;
+
+    /* typography */
+    --font-family-base: "Dojo-Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-size-small: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-large: 1.25rem;
+    --font-size-h2: 1.5rem;
+    --font-size-heading: 2.25rem;
+    --measure: 60ch;
 }
 
 /*type selectors, page-wide defaults*/
 body {
     background-color: var(--color-background);
     color: var(--color-foreground);/*  text and background for the whole site */
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    font-weight: 400;
+}
 
+/* type scale: every font-size outside :root is a var() */
+h1 {
+    font-size: var(--font-size-heading);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-large);
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+small {
+    font-size: var(--font-size-small);
+}
+
+/* readable measure: about 60 characters per line */
+p {
+    max-width: var(--measure);
 }
 
 a {
@@ -75,9 +156,12 @@ footer nav {
 
 .caption {
     text-align: center;
+    font-size: var(--font-size-small);
+    max-width: none; /* one short centered line, so it doesn't need the paragraph measure */
 }
 
 .tags li {
+    font-size: var(--font-size-small);
     display: inline-block;
     background-color: var(--color-pill);
     padding: 2px 10px;
