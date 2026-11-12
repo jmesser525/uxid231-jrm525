@@ -1,3 +1,9 @@
+
+/* Universal box-sizing reset */
+* {
+    box-sizing: border-box;
+}
+
 @font-face {
     font-family: "Dojo-Sans";
     src: url("fonts/DojoSans-Light.woff2") format("woff2");
@@ -58,6 +64,7 @@
     --measure: 60ch;
 }
 
+
 /*type selectors, page-wide defaults*/
 body {
     background-color: var(--color-background);
@@ -68,7 +75,16 @@ body {
     font-weight: 400;
 }
 
-/* type scale: every font-size outside :root is a var() */
+
+/* Main content box model */
+main {
+    max-width: 70ch;
+    margin-inline: auto;
+    padding: 2rem 1rem;
+}
+
+
+/* type scale */
 h1 {
     font-size: var(--font-size-heading);
 }
@@ -92,7 +108,7 @@ small {
     font-size: var(--font-size-small);
 }
 
-/* readable measure: about 60 characters per line */
+/* readable line length */
 p {
     max-width: var(--measure);
 }
@@ -157,7 +173,7 @@ footer nav {
 .caption {
     text-align: center;
     font-size: var(--font-size-small);
-    max-width: none; /* one short centered line, so it doesn't need the paragraph measure */
+    max-width: none; /* keeps the caption centered */
 }
 
 .tags li {
@@ -168,7 +184,6 @@ footer nav {
     margin-right: 6px;
     margin-bottom: 6px;
     border-radius: 999px;
-    box-shadow: 0px 2px 2px var(--color-card-resting);
 }
 
 /* Id selectors, unique, one-off elements */
